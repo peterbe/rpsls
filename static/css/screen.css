@@ -1,0 +1,17 @@
+.play-icons {
+    margin: 0;
+    padding: 0;
+}
+.icon {
+    list-style: none;
+}
+.rock {
+    position:absolute;
+    top: 10%;
+    left: 10%;
+}
+.paper {
+    position:absolute;
+    top: 30%;
+    left: 30%;
+}
