@@ -27,18 +27,18 @@ a {
 }
 .rock {
     position:absolute;
-    top: 50px;
-    left: 25px;
+    top: 55px;
+    left: 65px;
 }
 .paper {
     position:absolute;
-    top: 150px;
-    left: 25px;
+    top: 175px;
+    left: 225px;
 }
 .scissor {
     position:absolute;
-    top: 250px;
-    left: 25px;
+    top: 285px;
+    left: 65px;
 }
 .auth {
     padding-left: 10px;
@@ -46,6 +46,11 @@ a {
 .register,
 .hidden {
     display: none;
+}
+.icon_name {
+    position: absolute;
+    bottom: 150px;
+    left: 150px;
 }
 form {
     margin: 0;
