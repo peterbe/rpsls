@@ -13,7 +13,7 @@ var Play = (function() {
   function init(socket) {
     _socket = socket;
 
-    $('form.play').submit(function() {
+    $('form.chat').submit(function() {
       var name = $.trim($('input[name="name"]').val());
       var message = $.trim($('input[name="message"]').val());
       if (!name.length) {
@@ -51,8 +51,8 @@ var initsock = function(callback) {
     console.log('message', e.data);
 
     if (e.data.registered) {
-      $('auth').hide();
-      $('.play-icons .chat').show(500);
+      $('.auth').hide();
+      $('.play-icons, .chat').fadeIn(500);
       Status.update('Registered', 'black');
       $('input[name="name"]').val(e.data.registered);
     }
