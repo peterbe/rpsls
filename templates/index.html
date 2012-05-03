@@ -8,15 +8,14 @@
     </head>
     <body>
     <div class="game-container">
-        <div id="score-status" style="display:none">
-          <ul>
+        <div id="status"></div>
+        <div id="score-status">
+          <ul class="score">
             <li class="wins">Wins: <span></span></li>
             <li class="draws">Draws: <span></span></li>
             <li class="losses">Losses: <span></span></li>
           </ul>
         </div>
-	
-        <div id="status"></div>
         <section class="auth">
             <p><img src="{{ static_url('images/Original.png') }}" width="250" height="250" alt="rock papers scissors lizard spock" /></p>
             <p><a href="#" id="browserid" title="Sign-in with BrowserID"><img src="{{ static_url('images/sign_in_red.png') }}" alt="Sign in" /></a></p>

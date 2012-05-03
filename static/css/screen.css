@@ -37,17 +37,17 @@ a {
 }
 .rock {
     position:absolute;
-    top: 55px;
+    top: 70px;
     left: 65px;
 }
 .paper {
     position:absolute;
-    top: 175px;
+    top: 190px;
     left: 225px;
 }
 .scissor {
     position:absolute;
-    top: 285px;
+    top: 290px;
     left: 65px;
 }
 .chosen-weapon {
@@ -126,4 +126,17 @@ input[name="message"] {
     position: absolute;
     padding-left: 20px;
     bottom: 10px;
+}
+.score-status {
+    display: none;
+}
+.score {
+    margin: 0;
+    margin: 5px 8px 0 0;
+    float: right;
+    font-size: 10px;
+}
+.score li {
+    display: inline;
+    list-style: none;
 }
