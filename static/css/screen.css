@@ -76,6 +76,7 @@ input[name="nick"] {
     color: #fff;
 }
 .chat {
+    display: none;
     position: absolute;
     bottom: 10px;
 }
