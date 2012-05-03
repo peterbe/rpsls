@@ -9,6 +9,7 @@ var Status = (function() {
 
 var Play = (function() {
   var _socket;
+  var _ready = false;
 
   function init(socket) {
     _socket = socket;
@@ -27,15 +28,39 @@ var Play = (function() {
       }
       return false;
     });
+
+    $('li.icon').on('click', function() {
+      if (!_ready) return;
+      var f = $('form.play');
+      $('input[type="hidden"]', f).remove();
+      $('<input type="hidden" name="chosen">')
+        .val($(this).data('button'))
+        .appendTo(f);
+      Status.update('Button chosen', 'orange');
+      f.show();
+    });
+
+    $('form.play').submit(function() {
+      var button = $('input[type="hidden"]', this).val();
+      _socket.send_json({button: button});
+      Status.update('Checking...');
+      return false;
+    });
   }
 
   function has_logged_in(email) {
     _socket.send_json({register: email});
   }
 
+  function set_ready(toggle) {
+    _ready = toggle;
+    Status.update('Ready to play', 'green');
+  }
+
   return {
      init: init,
-      has_logged_in: has_logged_in
+      has_logged_in: has_logged_in,
+      set_ready: set_ready
   };
 
 })();
@@ -68,6 +93,20 @@ var initsock = function(callback) {
             .append($('<span>').text(e.data.message))
               .appendTo($('#log'));
     }
+
+    if (e.data.ready) {
+      Play.set_ready(true);
+    }
+
+    if (e.data.won) {
+      if (e.data.won == 1) {
+        Status.update('You won!!!', 'green');
+      } else {
+        Status.update('You lost :(', 'red');
+      }
+
+    }
+
   };
   sock.onclose = function() {
     console.log('closed');

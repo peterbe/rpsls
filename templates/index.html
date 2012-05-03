@@ -14,11 +14,15 @@
         </section>
         <section class="play-board">
             <ul class="play-icons">
-                <li class="icon"><img src="../static/images/rock.png" width="115" height="115" class="rock" /></li>
-                <li class="icon"><img src="../static/images/paper.png" width="115" height="115" class="paper" /></li>
-                <li class="icon"><img src="../static/images/scissors.png" width="115" height="115" class="scissor" /></li>
+                <li class="icon" data-button="rock"><img src="../static/images/rock.png" width="115" height="115" class="rock" /></li>
+                <li class="icon" data-button="paper"><img src="../static/images/paper.png" width="115" height="115" class="paper" /></li>
+                <li class="icon" data-button="scissor"><img src="../static/images/scissors.png" width="115" height="115" class="scissor" /></li>
             </ul>
-    
+
+            <form class="play" style="display:none">
+            <input type="submit" value="Send">
+            </form>
+
             <form class="chat">
                 <div id="log"></div>
                 <input placeholder="Your name" name="name">

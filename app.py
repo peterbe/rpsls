@@ -22,6 +22,12 @@ class ManifestHandler(tornado.web.RequestHandler):
         self.render('manifest.json')
 
 
+class SignoutHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.clear_cookie('user')
+        self.redirect('/')
+
+
 class BrowserIDAuthLoginHandler(tornado.web.RequestHandler):
 
     def check_xsrf_cookie(self):
@@ -66,7 +72,8 @@ def app():
     return tornado.web.Application([
         (r'/', HomeHandler),
         (r'/manifest.webapp', ManifestHandler),
-        (r'/browserid/', BrowserIDAuthLoginHandler)
+        (r'/browserid/', BrowserIDAuthLoginHandler),
+        (r'/signout/', SignoutHandler),
     ], **app_settings)
 
 
