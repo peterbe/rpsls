@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Rock Paper Scissors</title>
-	
+
     </head>
     <body>
         <ul class="play-icons">
@@ -13,7 +13,14 @@
             <li class="icon hidden lizard"><img src="" width="" height="" /></li>
             <li class="icon hidden spock"><img src="" width="" height="" /></li>
         </ul>
-	
+
+    <form>
+    <div id="log">
+    </div>
+    <input placeholder="Your name" name="name" style="width:100px">
+    <input name="message" style="width:300px">
+    <input type="submit" value="Send">
+    </form>
     <script src="static/libs/sockjs.js"></script>
     <script src="static/libs/jquery-1.7.2.min.js"></script>
     <script src="{{ static_url('play.js') }}"></script>
