@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "name": "RPSLS",
+  "description": "Rock Paper Scissors Lizard Spock",
+  "icons": {
+    "16": "/images/icon-16.png",
+    "48": "/images/icon-48.png",
+    "128": "/images/icon-128.png"
+  },
+  "developer": {
+    "name": "Mozilla WebDEV",
+    "url": ""
+  },
+  "installs_allowed_from": [
+    "https://marketplace.mozilla.org"
+  ],
+  "default_locale": "en",
+  "screen_size": {
+    "min_width": "600",
+    "min_height": "300"
+  },
+  "required_features": [
+    "touch"
+  ],
+  "orientation": "portrait",
+  "fullscreen": "true"
+}
