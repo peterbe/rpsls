@@ -168,4 +168,7 @@ if __name__ == '__main__':
     app = web.Application(EchoRouter.urls, **app_settings)
     app.listen(options.port)
     print "Running sock app on port", options.port
-    ioloop.IOLoop.instance().start()
+    try:
+        ioloop.IOLoop.instance().start()
+    except KeyboardInterrupt:
+        pass

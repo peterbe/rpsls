@@ -81,4 +81,7 @@ if __name__ == '__main__':
     tornado.options.parse_command_line()
     app().listen(options.port)
     print 'Running on port', options.port
-    tornado.ioloop.IOLoop.instance().start()
+    try:
+        tornado.ioloop.IOLoop.instance().start()
+    except KeyboardInterrupt:
+        pass

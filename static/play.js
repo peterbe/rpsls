@@ -149,6 +149,9 @@ var initsock = function(callback) {
     if (e.data.won || e.data.draw) {
       setTimeout(function() {
         $('form.restart').fadeIn(500);
+        setTimeout(function() {
+          $('form.restart:visible').submit();
+        }, 3 * 1000);
       }, 1 * 1000);
     }
 
