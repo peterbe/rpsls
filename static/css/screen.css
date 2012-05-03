@@ -6,6 +6,10 @@ body {
 h1 {
     font-size: .9em;
 }
+a {
+    color: #010101;
+    text-decoration: none;
+}
 .play-icons {
     display: none;
     margin: 0;
@@ -28,6 +32,12 @@ h1 {
     position:absolute;
     top: 250px;
     left: 50px;
+}
+.auth {
+    padding-left: 10px;
+}
+.register {
+    display: none;
 }
 .hidden {
     display: none;

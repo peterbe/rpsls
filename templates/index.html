@@ -8,15 +8,21 @@
     </head>
     <body>
         <div id="status"></div>
-        <form class="register">
-          Nick: <input name="nick">
-        </form>
+        <section class="auth">
+            <p>
+                <a href="#" id="browserid" title="Sign-in with BrowserID"><img src="../static/images/sign_in_red.png" alt="Sign in" /></a> or
+                <a href="#register" id="show_register">register</a>
+            </p>
+            <form class="register">
+              Nick: <input name="nick">
+            </form>
+        </section>
         <ul class="play-icons">
             <li class="icon rock"><img src="../static/images/rock.png" width="75" height="75" />Rock</li>
             <li class="icon paper"><img src="../static/images/paper.png" width="75" height="75" />Paper</li>
             <li class="icon scissor"><img src="../static/images/scissors.png" width="75" height="75" />Scissors</li>
-            <li class="icon hidden lizard"><img src="../static/images/lizard.png" width="75" height="75" /></li>
-            <li class="icon hidden spock"><img src="../static/images/spock.png" width="75" height="75" /></li>
+            <li class="icon hidden lizard"><img src="../static/images/lizard.png" width="75" height="75" />Lizard</li>
+            <li class="icon hidden spock"><img src="../static/images/spock.png" width="75" height="75" />Spock</li>
         </ul>
 
     <form class="chat">
@@ -28,5 +34,6 @@
     <script src="static/libs/sockjs.js"></script>
     <script src="static/libs/jquery-1.7.2.min.js"></script>
     <script src="{{ static_url('play.js') }}"></script>
+    <script src="{{ static_url('rpsls.js') }}"></script>
     </body>
 </html>
