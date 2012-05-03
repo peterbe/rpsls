@@ -11,8 +11,18 @@ var Play = (function() {
   var _socket;
   var _ready = false;
 
+  function reset_animation() {
+    // SCHALK
+  }
+
   function init(socket) {
     _socket = socket;
+
+    $('form.restart').submit(function() {
+      _ready = false;
+      reset_animation();
+      return false;
+    });
 
     $('form.chat').submit(function() {
       var name = $.trim($('input[name="name"]').val());
@@ -44,6 +54,7 @@ var Play = (function() {
       var button = $('input[type="hidden"]', this).val();
       _socket.send_json({button: button});
       Status.update('Checking...');
+      $(this).hide();
       return false;
     });
   }
@@ -104,7 +115,14 @@ var initsock = function(callback) {
       } else {
         Status.update('You lost :(', 'red');
       }
+    } else if (e.data.draw) {
+      Status.update("It's a Draw!", 'orange');
+    }
 
+    if (e.data.won || e.data.draw) {
+      setTimeout(function() {
+        $('form.restart').fadeIn(600);
+      }, 2 * 1000);
     }
 
   };
@@ -115,7 +133,7 @@ var initsock = function(callback) {
   sock.onopen = function() {
     //log('opened');
     console.log('open');
-    Status.update('Connected', 'green');
+    Status.update('Connected but not logged in', 'green');
     //sock.send('test');
     if (sock.readyState !== SockJS.OPEN) {
       throw "Connection NOT open";

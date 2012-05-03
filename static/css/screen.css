@@ -1,5 +1,5 @@
 /* apply a natural box layout model to all elements */
-* { 
+* {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -72,10 +72,11 @@ input[name="message"] {
     margin-left: 85px;
 }
 #log {
+    font-family: Courier;
     background-color: #010101;
     color: #fff;
     border: 3px inset #fff;
-    font-size: 12px;
+    font-size: 8px;
     height: 100px;
     overflow: hidden;
 }
