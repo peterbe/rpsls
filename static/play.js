@@ -54,8 +54,8 @@ var initsock = function(callback) {
     console.log('message', e.data);
 
     if (e.data.registered) {
-      $('form.register').hide();
-      $('.play-icons').show(500);
+      $('auth').hide();
+      $('.play-icons .chat').show(500);
       Status.update('Registered', 'black');
       $('input[name="name"]').val(e.data.registered);
     }
