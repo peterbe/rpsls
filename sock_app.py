@@ -34,6 +34,17 @@ class PlayConnection(SockJSConnection):
         if data.get('register'):
             self.nick = data.get('register')
             self.send({'registered': self.nick})
+            while self._waiting:
+                opponent = self._waiting.pop()
+                if opponent.is_closed:
+                    continue
+                self.send({'status': "playing against " + opponent.nick})
+                opponent.send({'status': "playing against " + self.nick})
+                break
+
+            else:
+                self._waiting.append(self)
+                self.send({'status': 'Waiting'})
         else:
             print "DATA", repr(data)
             data['date'] = datetime.datetime.now().strftime('%H:%M:%S')

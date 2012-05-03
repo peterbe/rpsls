@@ -52,11 +52,16 @@ var initsock = function(callback) {
 
   sock.onmessage = function(e) {
     console.log('message', e.data);
+
     if (e.data.registered) {
       $('form.register').hide();
       $('.play-icons').show(500);
       Status.update('Registered', 'black');
       $('input[name="name"]').val(e.data.registered);
+    }
+
+    if (e.data.status) {
+      Status.update(e.data.status, e.data.color || 'black');
     }
 
     if (e.data.message) {
