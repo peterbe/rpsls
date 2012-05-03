@@ -18,4 +18,4 @@ $(function() {
           }, 500);
           currentIcon.parents('li').append('<p class="icon_name">' + currentIconClass + '</p>');
     });
-})
+});
