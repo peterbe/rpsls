@@ -4,7 +4,19 @@ var Status = (function() {
     $('span', container).remove();
     $('<span>').addClass(color).text(msg).appendTo(container);
   }
-  return {update: update};
+
+  function update_score(wins, draws, losses) {
+    var c = $('#score-status');
+    $('.wins span', c).text(wins);
+    $('.draws span', c).text(draws);
+    $('.losses span', c).text(losses);
+    $('#score-status:hidden').show();
+  }
+
+  return {
+     update: update,
+      update_score: update_score
+  };
 })();
 
 var Play = (function() {
@@ -48,6 +60,11 @@ var Play = (function() {
         .appendTo(f);
       Status.update('Button chosen', 'orange');
       f.show();
+      setTimeout(function() {
+        if ($('form.play:visible').size()) {
+          $('form.play').submit().hide();
+        }
+      }, 2 * 1000);
     });
 
     $('form.play').submit(function() {
@@ -97,6 +114,13 @@ var initsock = function(callback) {
       Status.update(e.data.status, e.data.color || 'black');
     }
 
+    if (e.data.update_score) {
+      Status.update_score(e.data.update_score.wins,
+                          e.data.update_score.draws,
+                          e.data.update_score.losses);
+
+    }
+
     if (e.data.message) {
       $('<p>')
         .append($('<strong>').text(e.data.name + ': '))
@@ -121,8 +145,8 @@ var initsock = function(callback) {
 
     if (e.data.won || e.data.draw) {
       setTimeout(function() {
-        $('form.restart').fadeIn(600);
-      }, 2 * 1000);
+        $('form.restart').fadeIn(500);
+      }, 1 * 1000);
     }
 
   };

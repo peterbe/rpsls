@@ -79,9 +79,12 @@ input[name="message"] {
     background-color: #010101;
     color: #fff;
     border: 3px inset #fff;
-    font-size: 8px;
+    font-size: 10px;
     height: 100px;
     overflow: hidden;
+}
+#log time {
+    float:right;
 }
 #status span {
     display: inline-block;
