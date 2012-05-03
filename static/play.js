@@ -13,17 +13,6 @@ var Play = (function() {
   function init(socket) {
     _socket = socket;
 
-    $('form.register').submit(function() {
-      var nick = $('input[name="nick"]', this).val();
-      if (!nick) {
-        alert("Pick a name bastard!");
-        return false;
-      }
-      _socket.send_json({register: nick});
-
-      return false;
-    });
-
     $('form.play').submit(function() {
       var name = $.trim($('input[name="name"]').val());
       var message = $.trim($('input[name="message"]').val());
@@ -39,7 +28,15 @@ var Play = (function() {
       return false;
     });
   }
-  return {init: init};
+
+  function has_logged_in(email) {
+    _socket.send_json({register: email});
+  }
+
+  return {
+     init: init,
+      has_logged_in: has_logged_in
+  };
 
 })();
 

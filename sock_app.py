@@ -44,7 +44,7 @@ class PlayConnection(SockJSConnection):
 
             else:
                 self._waiting.append(self)
-                self.send({'status': 'Waiting'})
+                self.send({'status': 'Waiting', 'color': 'orange'})
         else:
             print "DATA", repr(data)
             data['date'] = datetime.datetime.now().strftime('%H:%M:%S')

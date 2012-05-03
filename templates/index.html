@@ -31,8 +31,11 @@
     <input name="message" style="width:300px">
     <input type="submit" value="Send">
     </form>
-    <script src="static/libs/sockjs.js"></script>
-    <script src="static/libs/jquery-1.7.2.min.js"></script>
+    <script src="https://browserid.org/include.js" type="text/javascript"></script>
+    <script src="https://browserid.org/include.js" type="text/javascript"></script>
+    <script src="{{ static_url('libs/sockjs.js') }}"></script>
+    <script src="{{ static_url('libs/jquery-1.7.2.min.js') }}"></script>
+    <script src="{{ static_url('browserid.js') }}"></script>
     <script src="{{ static_url('play.js') }}"></script>
     <script src="{{ static_url('rpsls.js') }}"></script>
     </body>
