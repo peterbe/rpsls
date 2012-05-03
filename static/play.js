@@ -1,9 +1,30 @@
-var Chat = (function() {
+var Status = (function() {
+  var container = $('#status');
+  function update(msg, color) {
+    $('span', container).remove();
+    $('<span>').addClass(color).text(msg).appendTo(container);
+  }
+  return {update: update};
+})();
+
+var Play = (function() {
   var _socket;
 
   function init(socket) {
     _socket = socket;
-    $('form').submit(function() {
+
+    $('form.register').submit(function() {
+      var nick = $('input[name="nick"]', this).val();
+      if (!nick) {
+        alert("Pick a name bastard!");
+        return false;
+      }
+      _socket.send_json({register: nick});
+
+      return false;
+    });
+
+    $('form.play').submit(function() {
       var name = $.trim($('input[name="name"]').val());
       var message = $.trim($('input[name="message"]').val());
       if (!name.length) {
@@ -31,21 +52,29 @@ var initsock = function(callback) {
 
   sock.onmessage = function(e) {
     console.log('message', e.data);
-    $('<p>')
-      .text(e.data.date)
-        .css('float', 'right')
-          .appendTo($('#log'));
-    $('<p>')
-      .append($('<strong>').text(e.data.name + ': '))
-        .append($('<span>').text(e.data.message))
-          .appendTo($('#log'));
+    if (e.data.registered) {
+      $('form.register').hide();
+      $('.play-icons').show(500);
+      Status.update('Registered', 'black');
+      $('input[name="name"]').val(e.data.registered);
+    }
+
+    if (e.data.message) {
+      $('<p>')
+        .append($('<strong>').text(e.data.name + ': '))
+          .append($('<time>').text(e.data.date))
+            .append($('<span>').text(e.data.message))
+              .appendTo($('#log'));
+    }
   };
   sock.onclose = function() {
     console.log('closed');
+    Status.update('Disconnected', 'red');
   };
   sock.onopen = function() {
     //log('opened');
     console.log('open');
+    Status.update('Connected', 'green');
     //sock.send('test');
     if (sock.readyState !== SockJS.OPEN) {
       throw "Connection NOT open";
@@ -58,6 +87,6 @@ var initsock = function(callback) {
 $(function() {
   console.log('let the madness begin!');
   initsock(function(socket) {
-    Chat.init(socket);
+    Play.init(socket);
   });
 });
