@@ -1,10 +1,13 @@
 body {
+    margin: 0;
+    padding: 0;
     font-family: 'Press Start 2P', cursive;
 }
 h1 {
     font-size: .9em;
 }
 .play-icons {
+    display: none;
     margin: 0;
     padding: 0;
 }
@@ -34,12 +37,33 @@ input {
     border: 1px solid #999;
     border-radius: 6px;
 }
+input[name="nick"] {
+    font-size:150%;
+}
 #log {
-    background-color: #333;
+    background-color: #010101;
     color: #fff;
     border: 3px inset #fff;
     height: 100px;
     overflow: hidden;
+}
+#status span {
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 5px;
+    width:100%;
+}
+#status .green {
+    background-color: #4BAE97;
+    color: #fff;
+}
+#status .orange {
+    background-color: #D0BB49;
+    color: #fff;
+}
+#status .red {
+    background-color: #BE3C3A;
+    color: #fff;
 }
 .chat {
     position: absolute;

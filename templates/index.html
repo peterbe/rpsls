@@ -7,10 +7,11 @@
         <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
     </head>
     <body>
+        <div id="status"></div>
         <form class="register">
-          Nick: <input name="nick" style="font-size:150%">
+          Nick: <input name="nick">
         </form>
-        <ul class="play-icons" style="display:none">
+        <ul class="play-icons">
             <li class="icon rock"><img src="../static/images/rock.png" width="75" height="75" />Rock</li>
             <li class="icon paper"><img src="../static/images/paper.png" width="75" height="75" />Paper</li>
             <li class="icon scissor"><img src="../static/images/scissors.png" width="75" height="75" />Scissors</li>
@@ -19,7 +20,6 @@
         </ul>
 
     <form class="chat">
-    <div id="status"></div>
     <div id="log"></div>
     <input placeholder="Your name" name="name" style="width:100px">
     <input name="message" style="width:300px">
