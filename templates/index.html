@@ -12,20 +12,22 @@
             <p><img src="../static/images/Original.png" width="250" height="250" alt="rock papers scissors lizard spock" /></p>
             <p><a href="#" id="browserid" title="Sign-in with BrowserID"><img src="../static/images/sign_in_red.png" alt="Sign in" /></a></p>
         </section>
-        <ul class="play-icons">
-            <li class="icon rock"><img src="../static/images/rock.png" width="75" height="75" />Rock</li>
-            <li class="icon paper"><img src="../static/images/paper.png" width="75" height="75" />Paper</li>
-            <li class="icon scissor"><img src="../static/images/scissors.png" width="75" height="75" />Scissors</li>
-            <li class="icon hidden lizard"><img src="../static/images/lizard.png" width="75" height="75" />Lizard</li>
-            <li class="icon hidden spock"><img src="../static/images/spock.png" width="75" height="75" />Spock</li>
-        </ul>
-
-    <form class="chat">
-        <div id="log"></div>
-        <input placeholder="Your name" name="name" style="width:100px">
-        <input name="message" style="width:300px">
-        <input type="submit" value="Send">
-    </form>
+        <section class="play-board">
+            <ul class="play-icons">
+                <li class="icon rock"><img src="../static/images/rock.png" width="75" height="75" />Rock</li>
+                <li class="icon paper"><img src="../static/images/paper.png" width="75" height="75" />Paper</li>
+                <li class="icon scissor"><img src="../static/images/scissors.png" width="75" height="75" />Scissors</li>
+                <li class="icon hidden lizard"><img src="../static/images/lizard.png" width="75" height="75" />Lizard</li>
+                <li class="icon hidden spock"><img src="../static/images/spock.png" width="75" height="75" />Spock</li>
+            </ul>
+    
+            <form class="chat">
+                <div id="log"></div>
+                <input placeholder="Your name" name="name">
+                <input name="message">
+                <input type="submit" value="Send">
+            </form>
+        </section>
     <script src="https://browserid.org/include.js" type="text/javascript"></script>
     <script src="https://browserid.org/include.js" type="text/javascript"></script>
     <script src="{{ static_url('libs/sockjs.js') }}"></script>

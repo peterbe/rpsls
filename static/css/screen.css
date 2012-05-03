@@ -1,14 +1,21 @@
+/* apply a natural box layout model to all elements */
+* { 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     padding: 0;
     font-family: 'Press Start 2P', cursive;
 }
-h1 {
-    font-size: .9em;
-}
 a {
     color: #010101;
     text-decoration: none;
+}
+.auth {
+    margin: 0 auto;
+    width: 300px;
 }
 .play-icons {
     display: none;
@@ -21,39 +28,49 @@ a {
 .rock {
     position:absolute;
     top: 50px;
-    left: 50px;
+    left: 25px;
 }
 .paper {
     position:absolute;
     top: 150px;
-    left: 50px;
+    left: 25px;
 }
 .scissor {
     position:absolute;
     top: 250px;
-    left: 50px;
+    left: 25px;
 }
 .auth {
     padding-left: 10px;
 }
-.register {
-    display: none;
-}
+.register,
 .hidden {
     display: none;
+}
+form {
+    margin: 0;
+    padding: 0;
 }
 input {
     padding: .3em;
     border: 1px solid #999;
     border-radius: 6px;
 }
-input[name="nick"] {
-    font-size:150%;
+input[name="name"] {
+    position: absolute;
+    left: -9999em;
+}
+input[name="message"] {
+    width: 300px;
+}
+#browserid {
+    margin-left: 85px;
 }
 #log {
     background-color: #010101;
     color: #fff;
     border: 3px inset #fff;
+    font-size: 12px;
     height: 100px;
     overflow: hidden;
 }
@@ -78,5 +95,6 @@ input[name="nick"] {
 .chat {
     display: none;
     position: absolute;
+    padding-left: 20px;
     bottom: 10px;
 }
