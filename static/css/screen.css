@@ -29,6 +29,18 @@ h1 {
 .hidden {
     display: none;
 }
+input {
+    padding: .3em;
+    border: 1px solid #999;
+    border-radius: 6px;
+}
+#log {
+    background-color: #333;
+    color: #fff;
+    border: 3px inset #fff;
+    height: 100px;
+    overflow: hidden;
+}
 .chat {
     position: absolute;
     bottom: 10px;
