@@ -7,11 +7,19 @@
 }
 .rock {
     position:absolute;
-    top: 10%;
-    left: 10%;
+    top: 40px;
+    left: 150px;
 }
 .paper {
     position:absolute;
-    top: 30%;
-    left: 30%;
+    top: 150px;
+    left: 250px;
+}
+.scissor {
+    position:absolute;
+    top: 150px;
+    left: 50px;
+}
+.hidden {
+    display: none;
 }
