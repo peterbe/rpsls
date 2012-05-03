@@ -1,3 +1,9 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+}
+h1 {
+    font-size: .9em;
+}
 .play-icons {
     margin: 0;
     padding: 0;
@@ -7,17 +13,17 @@
 }
 .rock {
     position:absolute;
-    top: 40px;
-    left: 150px;
+    top: 50px;
+    left: 50px;
 }
 .paper {
     position:absolute;
     top: 150px;
-    left: 250px;
+    left: 50px;
 }
 .scissor {
     position:absolute;
-    top: 150px;
+    top: 250px;
     left: 50px;
 }
 .hidden {
