@@ -28,6 +28,13 @@ a {
 .icon {
     list-style: none;
 }
+.rock,
+.paper,
+.scissor {
+    -webkit-transition: left linear 1s, top linear 1s, width 1s, height 1s;
+    -moz-transition: left linear 1s, top linear 1s, width 1s, height 1s;
+    transition: left linear 1s, top linear 1s, width 1s, height 1s;
+}
 .rock {
     position:absolute;
     top: 55px;
@@ -42,6 +49,16 @@ a {
     position:absolute;
     top: 285px;
     left: 65px;
+}
+.chosen-weapon {
+    position: absolute;
+    left: 65px;
+    top: 100px;
+    width: 250px;
+    height: 250px;
+    -webkit-transition: left linear 1s, top linear 1s, width 1s, height 1s;
+    -moz-transition: left linear 1s, top linear 1s, width 1s, height 1s;
+    transition: left linear 1s, top linear 1s, width 1s, height 1s;
 }
 .auth {
     padding-left: 10px;
@@ -81,7 +98,7 @@ input[name="message"] {
     border: 3px inset #fff;
     font-size: 10px;
     height: 100px;
-    overflow: hidden;
+    overflow: auto;
 }
 #log time {
     float:right;

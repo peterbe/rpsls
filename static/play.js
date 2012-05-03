@@ -24,7 +24,9 @@ var Play = (function() {
   var _ready = false;
 
   function reset_animation() {
-    // SCHALK
+    $("form.restart").hide();
+    $(".play-icons img").not(".chosen-weapon").show();
+    $(".play-icons img").removeClass('chosen-weapon');
   }
 
   function init(socket) {
@@ -127,6 +129,7 @@ var initsock = function(callback) {
           .append($('<time>').text(e.data.date))
             .append($('<span>').text(e.data.message))
               .appendTo($('#log'));
+        $('#log').scrollTop($('#log').scrollTop() + 1000);
     }
 
     if (e.data.ready) {
