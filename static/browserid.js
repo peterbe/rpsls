@@ -1,6 +1,6 @@
 
 function loggedIn(result) {
-  console.log(result);
+  //console.log(result);
   Play.has_logged_in(result.email);
 }
 

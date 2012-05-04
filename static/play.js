@@ -33,8 +33,9 @@ var Play = (function() {
     _socket = socket;
 
     $('form.restart').submit(function() {
-      _ready = false;
       reset_animation();
+      Status.update('Ready to play', 'green');
+      _ready = true;
       return false;
     });
 
@@ -72,7 +73,7 @@ var Play = (function() {
     $('form.play').submit(function() {
       var button = $('input[type="hidden"]', this).val();
       _socket.send_json({button: button});
-      Status.update('Checking...');
+      Status.update('Checking...', 'orange');
       $(this).hide();
       return false;
     });
